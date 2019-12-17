@@ -3,8 +3,88 @@
         <title>
             <%=title%>
         </title>
+
+        <!-- Linking css file -->
+        <link rel="stylesheet" type="text/css" href="home.css">
+
+        <!-- Adding Font Awesome -->
+        <script src="https://kit.fontawesome.com/5eee9e6077.js" crossorigin="anonymous"></script>
+
+        <!-- Adding favicon -->
+        <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     </head>
     <body>
-        <h1>This is home for codial!!</h1>
+        <!-- Body of TODO APP -->
+        <div id="view-todo">
+        <h1>TODO App</h1>
+
+        <!-- Form for adding tasks -->
+        <form action="/todo_list" method="POST">
+            
+            <label for="desc">DESCRIPTION</label><br>
+            <textarea id="desc" name="description" placeholder="What do you need to do?" rows="3" cols="100%" required></textarea>
+            <label for="categ" class="categ">CATEGORY</label>
+            <label for="due" class="due">DUE DATE</label>
+            <br>
+            <select name="category" id="categ" required>
+                    <option value="Choose a category">Choose a category</option>
+                    <option value="Work">Work</option>
+                    <option value="Personal">Personal</option>
+                    <option value="School">School</option>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Other">Other</option>
+            </select>
+            <input type="date" name="due_date" class="date" required>
+            <br>
+           
+            <button type="submit" class="sub_task"><i class="fas fa-plus">ADD TASK</i></button>
+
+            <!-- This button belongs to last form that will be used for deleting tasks -->
+            <button type="submit" class="del" form="del-form"><i class="fas fa-trash-alt">DELETE</i></button>
+        </form>
+        
+        <!-- Tasks to be printed -->
+        
+        <div class="todo_list">
+            <form id="del-form" action="/delete" method="POST">
+                <% let j=0%>
+            <% let size=todo_task;%>
+            <%for(let i of todo_task){%>
+                
+                <div class = "list">
+                       
+                    <span class ="left-list">
+                            
+                        <div >
+                            
+                            <input type="checkbox" name=<%="id"+j%> value=<%=i._id%> id="strike_it" >
+                          <label for="strike_it"><span class="left-desc"><%=i.description%></span></label>
+                        </div>
+                           
+                        <div class="left-date">
+                        
+                            <i class="fas fa-calendar"></i><%=i.due_date%>
+                        </div>
+                    </span>
+                    <span class = "right-list">
+                        <span class="list-categ"><%=i.category%></span>
+                    </span>
+                    <!-- <a href="/delete/?id=<%=i._id%>"><i class="fas fa-minus-circle"></i></a> -->
+                    <%j++%>
+                <%}%>
+
+                <!-- When all the tasks has been completed PRINT this MESSAGE -->
+                <%if (size.length == 0) { %>
+                    <h1>YOU DON'T HAVE ANYTHING TO DO</h1>
+                    <% } %>
+                
+                </div>
+                
+            </form>
+        </div>
+        
+    </div>
     </body>
 </html>
+
+
