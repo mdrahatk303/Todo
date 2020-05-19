@@ -1,14 +1,14 @@
 html{
-    background-color: rgb(216, 185, 231);
+    background-color: black;
 }
 /* For the whole body of todo app */
 #view-todo
 {
     text-align: center;
-
+    margin-top:15%;
     width: 800px;
     height: auto;
-    background-color: grey  ;
+    background-color: teal  ;
     margin-left: 25%;
     outline: auto;
 }
@@ -16,6 +16,7 @@ html{
 /* For drop down menu for category */
 select
 {
+    cursor: pointer;
     width: 50%;
     float: left;
     height: 37px;
@@ -25,30 +26,32 @@ select
 /* Hovering category menu */
 select:hover
 {
-    background-color: darkgrey;
+    background-color: rgb(172, 207, 209);
 }
 
 /* Adding styles to due date section */
 .date
 {
+    cursor: pointer;
     width:50%;
     outline: auto;
     height: 37px;
 }
 .date:hover{
-    background-color: darkgrey;
+    background-color:  rgb(172, 207, 209);;
 }
 
 /* Adding outline to description section */
 #desc
 {
     outline: auto;
+    width:100%;
 }
 
 /* Hovering description section */
 #desc:hover
 {
-    background-color: darkgrey;
+    background-color:  rgb(172, 207, 209);;
 }
 
 /* This for TEXT "CATEGORY" wriiten over category drop down menu */
@@ -95,13 +98,15 @@ select:hover
     width: 86%;
     display: inline-block;
     float: left;
+    color:whitesmoke;
     height: 59.6px;
     overflow: auto;
     margin-right: -15px;
     margin-left: 1px;
 }
 .left-list:hover{
-    background-color: darkseagreen;
+    background-color:  rgb(172, 207, 209);
+    color: black;
 }
 
 
@@ -117,7 +122,8 @@ select:hover
 }
 .right-list:hover
 {
-    background-color: deepskyblue;
+    background-color:  rgb(172, 207, 209);
+    color: black;
 }
 
 /* It is a super class for whole list that are to be printed */
@@ -143,6 +149,7 @@ select:hover
 /* checkbox */
 #strike_it
 {
+    cursor: pointer;
     height: 18px;
     width: 30px;
     margin-top: 16px;
@@ -152,11 +159,12 @@ select:hover
 /* for submit button for tasks */
 .sub_task
 {
+    cursor: pointer;
     height: 38px;
     width: 116px;
     color: white;
     /* margin-left: -15%; */
-    background-color: #342e2e;
+    background-color:green;
     font-size: medium;
     margin-top: 14px;
 }
@@ -181,6 +189,7 @@ select:hover
 /* Deleting  lists */
 .del
 {
+    cursor: pointer;
     height: 38px;
     width: 116px;
     color: white;
